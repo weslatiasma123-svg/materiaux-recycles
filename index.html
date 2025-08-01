@@ -6,8 +6,8 @@
   
   <!-- SEO -->
   <title>Matériaux Recyclés en Génie Civil</title>
-  <meta name="description" content="Guide des matériaux recyclés utilisés en génie civil : béton, briques, pneus, plastiques, acier... Propriétés, avantages, utilisations.">
-  <meta name="keywords" content="matériaux recyclés, génie civil, recyclage, construction durable, béton recyclé, pneus usagés">
+  <meta name="description" content="Guide des matériaux recyclés utilisés en génie civil : propriétés, avantages, inconvénients et utilisations.">
+  <meta name="keywords" content="matériaux recyclés, génie civil, recyclage, construction durable, béton recyclé, briques recyclées, pneus usagés">
   <meta name="author" content="Weslati Asma">
   <meta name="robots" content="index, follow">
 
@@ -42,7 +42,7 @@
       align-items: center;
       margin-bottom: 30px;
     }
-    #searchInput {
+    #materialSelect {
       padding: 12px;
       width: 70%;
       font-size: 16px;
@@ -92,13 +92,14 @@
     </header>
 
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="🔍 Rechercher un matériau (ex: béton, pneus, plastique)...">
-      <button onclick="filterMaterials()">Rechercher</button>
-      <button onclick="showAllMaterials()">Liste des matériaux</button>
+      <label for="materialSelect">Sélectionnez un matériau :</label>
+      <select id="materialSelect" onchange="afficherInfos()">
+        <option value="">Choisissez un matériau...</option>
+      </select>
     </div>
 
     <div id="materialsContainer">
-      <!-- Les matériaux seront ajoutés ici par JavaScript -->
+      <!-- Les informations seront affichées ici par JavaScript -->
     </div>
 
     <footer>
@@ -107,7 +108,7 @@
   </div>
 
   <script>
-    // Base de données complète des matériaux
+    // Base de données complète des matériaux recyclés
     const materials = {
       "Béton recyclé": {
         propriétés: [
@@ -148,72 +149,230 @@
           ]
         }
       },
-      // Ajoute ici les autres matériaux...
+      "Briques recyclées": {
+        propriétés: [
+          "Résistance mécanique",
+          "Isolation thermique et acoustique",
+          "Durabilité",
+          "Impact environnemental : réduction des déchets de briques"
+        ],
+        comparaison_traditionnel: {
+          avantages: ["Légèreté", "Isolation thermique"],
+          inconvénients: ["Durabilité moindre"]
+        },
+        utilisations: {
+          "Granulats de briques recyclées pour fondations et remblais": [
+            "Haute stabilité mécanique : portance et résistance adaptées aux fondations légères et terrassements",
+            "Drainage performant : structure poreuse limitant la stagnation d’eau et l’érosion",
+            "Solution durable : idéale pour couches de base, tranchées, parkings et infrastructures"
+          ],
+          "Matériau de terre battue": [
+            "Performance durable",
+            "Surface uniforme et stable",
+            "Drainage optimal"
+          ]
+        }
+      },
+      "Céramique recyclée": {
+        propriétés: [
+          "Propriétés physiques",
+          "Propriétés mécaniques",
+          "Propriétés chimiques",
+          "Impact environnemental : valorisation des déchets céramiques"
+        ],
+        comparaison_traditionnel: {
+          avantages: ["Matériau léger", "Bon drainage"],
+          inconvénients: ["Résistance mécanique variable"]
+        },
+        utilisations: {
+          "Amélioration des sols": [
+            "Renforce la portance et la stabilité des sols fins",
+            "Particulièrement adapté aux travaux de terrassement"
+          ],
+          "Matériaux de remblai et de fondation": [
+            "Haute résistance mécanique pour infrastructures routières et ferroviaires",
+            "Solution durable pour couches de fondation et remblais"
+          ],
+          "Drainage et filtration": [
+            "Porosité optimisée pour une efficacité drainante",
+            "Idéal pour stabilisation de pentes et les systèmes de gestion des eaux"
+          ],
+          "Bétons et mélanges cimentaires": [
+            "Amélioration des propriétés mécaniques et thermiques",
+            "Agrégats performants pour des structures durables"
+          ]
+        }
+      },
+      "Enrobés recyclés": {
+        propriétés: [
+          "Propriétés physiques",
+          "Propriétés mécaniques",
+          "Propriétés chimiques",
+          "Impact environnemental : réduction des déchets routiers"
+        ],
+        comparaison_traditionnel: {
+          avantages: ["Réhabilitation des chaussées", "Coût réduit"],
+          inconvénients: ["Performance légèrement inférieure"]
+        },
+        utilisations: {
+          "Renforcement des sols": [],
+          "Matériaux de remblai et de fondation": [],
+          "Drainage et étanchéité": [],
+          "Traitement des sols par enrobés bitumineux": []
+        }
+      },
+      "Acier recyclé": {
+        propriétés: [
+          "Standardisé et normalisé",
+          "Polyvalence",
+          "Potentiel esthétique",
+          "Compatibilité avec d'autres matériaux",
+          "Capacité à bien se travailler",
+          "Recyclable",
+          "Impact environnemental : réduction de l'extraction minière par recyclage"
+        ],
+        comparaison_traditionnel: {
+          avantages: ["Propriétés similaires à l'acier vierge", "Coût réduit"],
+          inconvénients: ["Variabilité des propriétés"]
+        },
+        utilisations: {
+          "Renforcement des sols": [],
+          "Stabilisation des pentes": [],
+          "Drainage et filtration": [],
+          "Réhabilitation de sites contaminés": [
+            "Fonction clé pour les barrières de confinement des polluants",
+            "Haute résistance mécanique et isolation efficace des zones contaminées"
+          ],
+          "Remblais légers": [
+            "Allège la charge sur les sols compressibles",
+            "Idéal pour des projets sensibles au poids (remblais sur sols faibles, zones urbaines denses)"
+          ]
+        }
+      },
+      "Pneus usagés": {
+        propriétés: [
+          "Durabilité",
+          "Flexibilité",
+          "Légèreté",
+          "Capacité de déformation sans rupture",
+          "Impact environnemental : réduction des déchets de pneus"
+        ],
+        comparaison_traditionnel: {
+          avantages: ["Légèreté", "Excellente isolation"],
+          inconvénients: ["Dégradation pouvant libérer des produits chimiques toxiques"]
+        },
+        utilisations: {
+          "Stabilisation des pentes": [
+            "Solution innovante en utilisant des pneus recyclés pour renforcer les sols en pente"
+          ],
+          "Construction routière": [],
+          "Construction des murs de soutènement": [],
+          "Drainage et gestion des eaux": []
+        }
+      },
+      "Déchets plastiques": {
+        propriétés: [
+          "Légèreté",
+          "Durabilité",
+          "Flexibilité",
+          "Faible perméabilité",
+          "Isolation thermique et acoustique",
+          "Impact environnemental : réduction des déchets plastiques"
+        ],
+        comparaison_traditionnel: {
+          avantages: ["Légèreté", "Résistance chimique"],
+          inconvénients: ["Faible résistance mécanique"]
+        },
+        utilisations: {
+          "Renforcement des sols": [],
+          "Barrières imperméables": [],
+          "Drainage et filtration": [],
+          "Stabilisation des sols": [],
+          "Réduction de l'empreinte environnementale": []
+        }
+      },
+      "Cendres volantes": {
+        propriétés: [
+          "Composition chimique",
+          "Granulométrie",
+          "Pouzzolanicité",
+          "Densité",
+          "Stabilité chimique",
+          "Teneur en eau",
+          "Impact environnemental : réduction des émissions industrielles"
+        ],
+        comparaison_traditionnel: {
+          avantages: ["Amélioration de la durabilité du béton", "Réduction des coûts"],
+          inconvénients: ["Disponibilité limitée"]
+        },
+        utilisations: {
+          "Stabilisation des sols et remblais": [],
+          "Construction routière et ferroviaire": [],
+          "Drainage et gestion des eaux": [],
+          "Barrières géotechniques": [],
+          "Béton géotechnique": []
+        }
+      }
     };
 
-    // Fonction pour afficher tous les matériaux
-    function afficherMateriaux() {
-      const container = document.getElementById("materialsContainer");
-      container.innerHTML = "";
-
+    // Fonction pour remplir le menu déroulant
+    function chargerMenu() {
+      const select = document.getElementById("materialSelect");
+      select.innerHTML = "<option value=''>Choisissez un matériau...</option>";
       Object.keys(materials).forEach(name => {
-        const mat = materials[name];
-        let html = `<div class="material-card" data-name="${name.toLowerCase()}">`;
-        html += `<h2>${name}</h2>`;
-
-        // Propriétés
-        html += `<div class="section-title">🔹 Propriétés :</div><ul>`;
-        mat.propriétés.forEach(p => html += `<li>${p}</li>`);
-        html += `</ul>`;
-
-        // Comparaison
-        html += `<div class="section-title">🔹 Comparaison avec matériaux traditionnels :</div>`;
-        html += `<div class="avantage">✅ Avantages : ${mat.comparaison_traditionnel.avantages.join(", ")}</div>`;
-        html += `<div class="inconvenient">❌ Inconvénients : ${mat.comparaison_traditionnel.inconvénients.join(", ")}</div>`;
-
-        // Utilisations
-        html += `<div class="section-title">🔹 Utilisations :</div><ul>`;
-        Object.keys(mat.utilisations).forEach(usage => {
-          html += `<li><strong>${usage}</strong>`;
-          const details = mat.utilisations[usage];
-          if (Array.isArray(details) && details.length > 0) {
-            html += "<ul>";
-            details.forEach(d => html += `<li>${d}</li>`);
-            html += "</ul>";
-          }
-          html += "</li>";
-        });
-        html += `</ul>`;
-        html += `</div>`;
-        container.innerHTML += html;
+        const option = document.createElement("option");
+        option.value = name.toLowerCase();
+        option.textContent = name;
+        select.appendChild(option);
       });
     }
 
-    // Fonction de recherche
-    function filterMaterials() {
-      const query = document.getElementById("searchInput").value.toLowerCase();
-      const cards = document.querySelectorAll(".material-card");
-      cards.forEach(card => {
-        const name = card.getAttribute("data-name");
-        if (query === "" || name.includes(query)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
+    // Fonction pour afficher les informations du matériau sélectionné
+    function afficherInfos() {
+      const select = document.getElementById("materialSelect");
+      const selectedKey = select.value;
+      if (!selectedKey) {
+        document.getElementById("materialsContainer").innerHTML = "<p>👉 Sélectionnez un matériau pour afficher ses informations.</p>";
+        return;
+      }
+
+      // Trouver le matériau correspondant (insensible à la casse)
+      const materialName = Object.keys(materials).find(key => key.toLowerCase() === selectedKey);
+      const mat = materials[materialName];
+      const container = document.getElementById("materialsContainer");
+
+      let html = `<h2>${materialName}</h2>`;
+
+      // Propriétés
+      html += `<div class="section-title">🔹 Propriétés :</div><ul>`;
+      mat.propriétés.forEach(p => html += `<li>${p}</li>`);
+      html += `</ul>`;
+
+      // Comparaison
+      html += `<div class="section-title">🔹 Comparaison avec matériaux traditionnels :</div>`;
+      html += `<div class="avantage">✅ Avantages : ${mat.comparaison_traditionnel.avantages.join(", ")}</div>`;
+      html += `<div class="inconvenient">❌ Inconvénients : ${mat.comparaison_traditionnel.inconvénients.join(", ")}</div>`;
+
+      // Utilisations
+      html += `<div class="section-title">🔹 Utilisations :</div><ul>`;
+      Object.keys(mat.utilisations).forEach(usage => {
+        html += `<li><strong>${usage}</strong>`;
+        const details = mat.utilisations[usage];
+        if (Array.isArray(details) && details.length > 0) {
+          html += "<ul>";
+          details.forEach(d => html += `<li>${d}</li>`);
+          html += "</ul>";
         }
+        html += "</li>";
       });
+      html += `</ul>`;
+
+      container.innerHTML = html;
     }
 
-    // Affiche tous les matériaux
-    function showAllMaterials() {
-      const cards = document.querySelectorAll(".material-card");
-      cards.forEach(card => {
-        card.style.display = "block";
-      });
-    }
-
-    // Charge tous les matériaux au démarrage
+    // Charger le menu au démarrage
     window.onload = function() {
-      afficherMateriaux();
+      chargerMenu();
     };
   </script>
 </body>
