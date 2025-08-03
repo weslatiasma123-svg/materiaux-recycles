@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- SEO -->
-  <title>Matériaux Recyclés en Génie Civil - Tunisie & Monde</title>
-  <meta name="description" content="Guide complet des matériaux recyclés en génie civil : utilisations en Tunisie, projets RE-MED, REG, et comparaisons internationales.">
-  <meta name="keywords" content="matériaux recyclés, génie civil, Tunisie, RE-MED, REG, construction durable, béton recyclé, pneus, plastique, cendres volantes">
+  <title>Matériaux Recyclés en Génie Civil</title>
+  <meta name="description" content="Guide des matériaux recyclés utilisés en génie civil : propriétés, avantages, inconvénients et utilisations.">
+  <meta name="keywords" content="matériaux recyclés, génie civil, recyclage, construction durable, béton recyclé, briques recyclées, pneus usagés">
   <meta name="author" content="Weslati Asma">
   <meta name="robots" content="index, follow">
   <!-- Style -->
@@ -120,32 +120,6 @@
     .close:hover {
       color: #000;
     }
-    .conclusion-section {
-      margin-top: 40px;
-      padding: 25px;
-      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-      border-radius: 12px;
-      border: 1px solid #90caf9;
-      text-align: center;
-      font-size: 16px;
-      color: #0d47a1;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    .conclusion-section h2 {
-      color: #005b96;
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .conclusion-section h2 .flag {
-      font-size: 1.5em;
-    }
-    .conclusion-section p {
-      line-height: 1.7;
-      margin: 0;
-    }
     footer {
       text-align: center;
       margin-top: 50px;
@@ -158,7 +132,7 @@
   <div class="container">
     <header>
       <h1>📚 Matériaux Recyclés en Génie Civil</h1>
-      <p>Découvrez les matériaux recyclés utilisés dans la construction durable : propriétés, avantages, inconvénients, utilisations locales (Tunisie) et internationales.</p>
+      <p>Découvrez les matériaux recyclés utilisés dans la construction durable : propriétés, avantages, inconvénients, utilisations en Tunisie et dans le monde.</p>
     </header>
     <div class="search-box">
       <label for="materialSelect">Sélectionnez un matériau :</label>
@@ -169,18 +143,6 @@
     <div id="materialsContainer">
       <p>👉 Sélectionnez un matériau pour afficher ses informations.</p>
     </div>
-
-    <!-- 🔵 Section de conclusion avec drapeau -->
-    <div class="conclusion-section">
-      <h2>
-        <span class="flag">🇹🇳</span>
-        Conclusion : La Tunisie, leader africain en économie circulaire
-      </h2>
-      <p>
-        La Tunisie, pionnière en Afrique depuis 2020 avec le projet <strong>RE-MED</strong>, a démontré l'efficacité des matériaux recyclés dans la construction routière, notamment sur la <strong>RN3</strong>. Cette initiative innovante, combinée aux efforts de l'unité <strong>REG</strong> qui recycle 1000 tonnes de déchets par jour, positionne notre pays comme leader en économie circulaire dans le BTP. Ces avancées, tout en protégeant notre environnement contre les décharges sauvages, s'inscrivent dans une dynamique mondiale vers une construction plus durable. La Tunisie doit poursuivre sur cette voie exemplaire en renforçant sa réglementation et en inspirant d'autres nations africaines à adopter ces pratiques écologiques et économiquement viables.
-      </p>
-    </div>
-
     <footer>
       &copy; 2025 Matériaux Recyclés | Un projet éducatif sur le recyclage en génie civil
     </footer>
@@ -278,8 +240,15 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li>Projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span> : tronçon de 1,2 km sur la <span class="highlight" onclick="ouvrirModale('RN3')">RN3</span> avec granulats recyclés.</li>
-            <li>Unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span> à Ezzahra : recyclage de 1000 tonnes/jour.</li>
+            <li>Le projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span> a permis la construction d’un tronçon de 1,2 km sur la <span class="highlight" onclick="ouvrirModale('RN3')">RN3</span> (Ben Arous) utilisant des granulats recyclés.</li>
+            <li>L’unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span> à Ezzahra recycle les déchets de démolition en granulats routiers.</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li>Jusqu’à <strong>30%</strong> des granulats utilisés en Europe proviennent du béton recyclé.</li>
+            <li>Le projet français <strong>Recygénie</strong> atteint jusqu’à <strong>100%</strong> de substitution dans certaines applications.</li>
           </ul>
         `
       },
@@ -309,7 +278,15 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li>Utilisées dans les sous-couches routières via le projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>.</li>
+            <li>Intégrées comme granulats dans les routes du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>, notamment pour les sous-couches routières.</li>
+            <li>Filière encore peu structurée.</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li>Entre <strong>10-20%</strong> des briques sont recyclées en remblais (norme NF EN 12620).</li>
+            <li>Utilisées en Europe dans les remblais légers et les murs en terre stabilisée.</li>
           </ul>
         `
       },
@@ -345,7 +322,14 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li>Valorisation partielle via l’unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span>.</li>
+            <li>Valorisée en granulats pour les routes via l'unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span>, mais aucun projet spécifique documenté.</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li>Recyclée à <strong>15%</strong> dans les bétons légers (projets pilotes en Italie et Espagne).</li>
+            <li>Utilisée dans les dalles de sol et les murs en béton cellulaire.</li>
           </ul>
         `
       },
@@ -377,7 +361,14 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li>Explorés dans le cadre du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>.</li>
+            <li>Explorés dans le cadre du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>, mais non encore généralisés.</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li>Jusqu’à <strong>50-80%</strong> des enrobés réutilisés dans les pays nordiques (ex. : Suède).</li>
+            <li>Technologie mature en Allemagne et aux Pays-Bas.</li>
           </ul>
         `
       },
@@ -417,7 +408,14 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li>Collecté par des réseaux informels (ex. : « Berbechas » à Sfax). Recyclé par l’usine El Fouladh à Menzel Bourguiba.</li>
+            <li>Collecté par des réseaux informels (ex. : « Berbechas » à Sfax). Recyclé par l’usine <strong>El Fouladh</strong> à Menzel Bourguiba pour des structures métalliques.</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li>Taux de recyclage de <strong>85%</strong> dans les ossatures et fondations.</li>
+            <li>Utilisé dans les tours, ponts et infrastructures industrielles.</li>
           </ul>
         `
       },
@@ -450,7 +448,14 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li>Très faible recyclage. Cadre réglementaire depuis 2015, mais aucun projet routier significatif.</li>
+            <li>Très faible recyclage (<strong>70 entreprises</strong> actives). Cadre réglementaire depuis 2015, mais aucun projet routier significatif.</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li><strong>40%</strong> des pneus valorisés en granulats (terrains sportifs, routes).</li>
+            <li>Technologie RMIT (Australie) : routes avec granulats de pneus résistantes aux fissures.</li>
           </ul>
         `
       },
@@ -487,7 +492,14 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li>Aucun projet majeur. Initiatives locales limitées.</li>
+            <li>Aucun projet majeur. Initiatives locales limitées (ex. : briques en plastique non implantées).</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li><strong><5%</strong> utilisés dans le BTP.</li>
+            <li>Inde : routes avec <strong>10%</strong> de plastique recyclé dans l’enrobé.</li>
           </ul>
         `
       },
@@ -526,6 +538,13 @@
           <h3>📌 Utilisation en Tunisie</h3>
           <ul>
             <li>Non utilisées malgré leur potentiel pour les ciments bas carbone.</li>
+          </ul>
+        `,
+        monde: `
+          <h3>🌍 Utilisation mondiale</h3>
+          <ul>
+            <li>Jusqu’à <strong>50%</strong> intégrées dans certains ciments (Royaume-Uni, États-Unis).</li>
+            <li>Fondation Ellen MacArthur : modèle de circularité avec les cendres volantes.</li>
           </ul>
         `
       }
@@ -583,6 +602,11 @@
       // Section Tunisie
       if (mat.tunisie) {
         html += `<div class="tunisia-section">${mat.tunisie}</div>`;
+      }
+
+      // Section Monde
+      if (mat.monde) {
+        html += `<div class="tunisia-section">${mat.monde}</div>`;
       }
 
       container.innerHTML = html;
