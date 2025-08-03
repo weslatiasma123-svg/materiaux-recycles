@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- SEO -->
-  <title>Matériaux Recyclés en Génie Civil - Tunisie & Monde</title>
-  <meta name="description" content="Guide complet des matériaux recyclés en génie civil : utilisations en Tunisie, projets RE-MED, REG, et comparaisons internationales.">
-  <meta name="keywords" content="matériaux recyclés, génie civil, Tunisie, RE-MED, REG, construction durable, béton recyclé, pneus, plastique, cendres volantes">
+  <title>Matériaux Recyclés en Génie Civil</title>
+  <meta name="description" content="Guide des matériaux recyclés utilisés en génie civil : propriétés, avantages, inconvénients et utilisations.">
+  <meta name="keywords" content="matériaux recyclés, génie civil, recyclage, construction durable, béton recyclé, briques recyclées, pneus usagés">
   <meta name="author" content="Weslati Asma">
   <meta name="robots" content="index, follow">
   <!-- Style -->
@@ -73,23 +73,16 @@
     .inconvenient {
       color: red;
     }
-    .tunisia-section {
-      background-color: #fff8e6;
-      padding: 15px;
-      border-left: 5px solid #ff9800;
-      margin-top: 15px;
-      border-radius: 0 8px 8px 0;
-    }
-    .tunisia-section h3 {
-      margin-top: 0;
-      color: #d35400;
-    }
+
+    /* Mots cliquables */
     .highlight {
       font-weight: bold;
       color: #005b96;
       cursor: pointer;
       text-decoration: underline;
     }
+
+    /* Modale */
     .modal {
       display: none;
       position: fixed;
@@ -109,7 +102,6 @@
       width: 80%;
       max-width: 700px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      position: relative;
     }
     .close {
       color: #aaa;
@@ -122,7 +114,7 @@
       color: #000;
     }
 
-    /* Style pour la conclusion */
+    /* Conclusion */
     .conclusion-section {
       margin-top: 40px;
       padding: 25px;
@@ -144,7 +136,6 @@
     }
     .conclusion-section h2 .flag {
       font-size: 1.5em;
-      vertical-align: middle;
     }
     .conclusion-section p {
       line-height: 1.7;
@@ -163,7 +154,7 @@
   <div class="container">
     <header>
       <h1>📚 Matériaux Recyclés en Génie Civil</h1>
-      <p>Découvrez les matériaux recyclés utilisés dans la construction durable : propriétés, avantages, inconvénients, utilisations locales (Tunisie) et internationales.</p>
+      <p>Découvrez les matériaux recyclés utilisés dans la construction durable : propriétés, avantages, inconvénients et utilisations.</p>
     </header>
     <div class="search-box">
       <label for="materialSelect">Sélectionnez un matériau :</label>
@@ -175,12 +166,9 @@
       <p>👉 Sélectionnez un matériau pour afficher ses informations.</p>
     </div>
 
-    <!-- 🔵 Section de conclusion avec drapeau -->
+    <!-- 🔵 Conclusion avec drapeau -->
     <div class="conclusion-section">
-      <h2>
-        <span class="flag">🇹🇳</span>
-        Conclusion : La Tunisie, leader africain en économie circulaire
-      </h2>
+      <h2><span class="flag">🇹🇳</span> Conclusion : La Tunisie, leader en économie circulaire</h2>
       <p>
         La Tunisie, pionnière en Afrique depuis 2020 avec le projet <strong>RE-MED</strong>, a démontré l'efficacité des matériaux recyclés dans la construction routière, notamment sur la <strong>RN3</strong>. Cette initiative innovante, combinée aux efforts de l'unité <strong>REG</strong> qui recycle 1000 tonnes de déchets par jour, positionne notre pays comme leader en économie circulaire dans le BTP. Ces avancées, tout en protégeant notre environnement contre les décharges sauvages, s'inscrivent dans une dynamique mondiale vers une construction plus durable. La Tunisie doit poursuivre sur cette voie exemplaire en renforçant sa réglementation et en inspirant d'autres nations africaines à adopter ces pratiques écologiques et économiquement viables.
       </p>
@@ -201,7 +189,7 @@
   </div>
 
   <script>
-    // Base de données des définitions
+    // Définitions des termes
     const definitions = {
       "RE-MED": {
         title: "Projet RE-MED",
@@ -281,10 +269,10 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Le projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span> (UE) a permis la construction d’un tronçon de 1,2 km sur la <span class="highlight" onclick="ouvrirModale('RN3')">RN3</span> (Ben Arous) utilisant des granulats de béton recyclés. Une unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span> à Ezzahra traite les déchets de démolition. Objectif : évaluer la performance et préparer une réglementation.</li>
-            <li><strong>Monde :</strong> Jusqu’à <strong>30%</strong> des granulats en Europe proviennent de béton recyclé. Le projet Recygénie (France) atteint jusqu’à 100% dans certains cas.</li>
+            <li>Projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span> : tronçon de 1,2 km sur la <span class="highlight" onclick="ouvrirModale('RN3')">RN3</span> avec granulats recyclés.</li>
+            <li>Unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span> à Ezzahra : recyclage de 1000 tonnes/jour.</li>
           </ul>
         `
       },
@@ -312,10 +300,9 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Utilisées comme granulats dans les sous-couches routières dans le cadre du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>. Filière encore peu structurée.</li>
-            <li><strong>Monde :</strong> Entre <strong>10-20%</strong> des briques sont recyclées en remblais (norme NF EN 12620).</li>
+            <li>Utilisées dans les sous-couches routières via le projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>.</li>
           </ul>
         `
       },
@@ -349,10 +336,9 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Valorisation partielle via l’unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span> à Ezzahra, mais aucun projet spécifique documenté.</li>
-            <li><strong>Monde :</strong> Recyclée à <strong>15%</strong> dans les bétons légers (projets pilotes en Italie et Espagne).</li>
+            <li>Valorisation partielle via l’unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span>.</li>
           </ul>
         `
       },
@@ -382,10 +368,9 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Explorés dans le cadre du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>, mais pas encore généralisés.</li>
-            <li><strong>Monde :</strong> <strong>50-80%</strong> des enrobés sont réutilisés dans les pays nordiques (ex. : Suède).</li>
+            <li>Explorés dans le cadre du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>.</li>
           </ul>
         `
       },
@@ -423,10 +408,9 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Collecté par des réseaux informels (ex. : « Berbechas » à Sfax). Recyclé par l’usine <strong>El Fouladh</strong> à Menzel Bourguiba pour des structures métalliques.</li>
-            <li><strong>Monde :</strong> Taux de recyclage de <strong>85%</strong> dans les ossatures et fondations.</li>
+            <li>Collecté par des réseaux informels (ex. : « Berbechas » à Sfax). Recyclé par l’usine El Fouladh à Menzel Bourguiba.</li>
           </ul>
         `
       },
@@ -457,10 +441,9 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Très faible recyclage (<strong>70 entreprises</strong> actives). Cadre réglementaire existant depuis 2015, mais aucun projet routier significatif.</li>
-            <li><strong>Monde :</strong> <strong>40%</strong> valorisés en granulats pour terrains sportifs ou routes (technologie RMIT en Australie).</li>
+            <li>Très faible recyclage. Cadre réglementaire depuis 2015, mais aucun projet routier significatif.</li>
           </ul>
         `
       },
@@ -495,10 +478,9 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Aucun projet majeur. Initiatives locales limitées (briques en plastique non implantées).</li>
-            <li><strong>Monde :</strong> Moins de <strong>5%</strong> utilisés dans le BTP (ex. : routes en Inde avec 10% de plastique recyclé).</li>
+            <li>Aucun projet majeur. Initiatives locales limitées.</li>
           </ul>
         `
       },
@@ -534,16 +516,15 @@
           ]
         },
         tunisie: `
-          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <h3>📌 Utilisation en Tunisie</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Non utilisées malgré leur potentiel pour les ciments bas carbone.</li>
-            <li><strong>Monde :</strong> Intégrées à <strong>50%</strong> dans certains ciments (Fondation Ellen MacArthur, Royaume-Uni).</li>
+            <li>Non utilisées malgré leur potentiel pour les ciments bas carbone.</li>
           </ul>
         `
       }
     };
 
-    // Fonction pour remplir le menu déroulant
+    // Charger le menu
     function chargerMenu() {
       const select = document.getElementById("materialSelect");
       select.innerHTML = "<option value=''>Choisissez un matériau...</option>";
@@ -555,7 +536,7 @@
       });
     }
 
-    // Fonction pour afficher les informations du matériau sélectionné
+    // Afficher les infos
     function afficherInfos() {
       const select = document.getElementById("materialSelect");
       const selectedKey = select.value;
@@ -600,7 +581,7 @@
       container.innerHTML = html;
     }
 
-    // Charger le menu au démarrage
+    // Charger au démarrage
     window.onload = function() {
       chargerMenu();
     };
