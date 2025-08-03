@@ -84,6 +84,73 @@
       margin-top: 0;
       color: #d35400;
     }
+    .highlight {
+      font-weight: bold;
+      color: #005b96;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      overflow: auto;
+    }
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #000;
+    }
+
+    /* Style pour la conclusion */
+    .conclusion-section {
+      margin-top: 40px;
+      padding: 25px;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      border-radius: 12px;
+      border: 1px solid #90caf9;
+      text-align: center;
+      font-size: 16px;
+      color: #0d47a1;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .conclusion-section h2 {
+      color: #005b96;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .conclusion-section h2 .flag {
+      font-size: 1.5em;
+      vertical-align: middle;
+    }
+    .conclusion-section p {
+      line-height: 1.7;
+      margin: 0;
+    }
+
     footer {
       text-align: center;
       margin-top: 50px;
@@ -105,14 +172,75 @@
       </select>
     </div>
     <div id="materialsContainer">
-      <!-- Les informations seront affichées ici par JavaScript -->
+      <p>👉 Sélectionnez un matériau pour afficher ses informations.</p>
     </div>
+
+    <!-- 🔵 Section de conclusion avec drapeau -->
+    <div class="conclusion-section">
+      <h2>
+        <span class="flag">🇹🇳</span>
+        Conclusion : La Tunisie, leader africain en économie circulaire
+      </h2>
+      <p>
+        La Tunisie, pionnière en Afrique depuis 2020 avec le projet <strong>RE-MED</strong>, a démontré l'efficacité des matériaux recyclés dans la construction routière, notamment sur la <strong>RN3</strong>. Cette initiative innovante, combinée aux efforts de l'unité <strong>REG</strong> qui recycle 1000 tonnes de déchets par jour, positionne notre pays comme leader en économie circulaire dans le BTP. Ces avancées, tout en protégeant notre environnement contre les décharges sauvages, s'inscrivent dans une dynamique mondiale vers une construction plus durable. La Tunisie doit poursuivre sur cette voie exemplaire en renforçant sa réglementation et en inspirant d'autres nations africaines à adopter ces pratiques écologiques et économiquement viables.
+      </p>
+    </div>
+
     <footer>
       &copy; 2025 Matériaux Recyclés | Un projet éducatif sur le recyclage en génie civil
     </footer>
   </div>
+
+  <!-- Modale pour les définitions -->
+  <div id="definitionModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fermerModale()">&times;</span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
   <script>
-    // Base de données complète des matériaux recyclés + infos Tunisie
+    // Base de données des définitions
+    const definitions = {
+      "RE-MED": {
+        title: "Projet RE-MED",
+        text: "Le projet RE-MED est une initiative innovante visant à promouvoir l'économie circulaire dans le secteur de la construction en Méditerranée. Financé principalement par l'Union européenne, ce projet rassemble des partenaires de France, Italie, Tunisie et Liban autour d'un objectif commun : transformer les déchets de construction et de démolition en matériaux réutilisables pour les infrastructures routières. En Tunisie, RE-MED a permis la réalisation d'une section pilote de 1,2 km sur la RN3 utilisant des granulats recyclés, équipée de capteurs pour suivre ses performances. Le projet cherche à démontrer la viabilité technique et économique des matériaux recyclés tout en proposant un cadre réglementaire pour généraliser leur utilisation à hauteur de 20% minimum dans les chantiers routiers. Cette initiative s'inscrit dans une démarche plus large de réduction des déchets et de préservation des ressources naturelles, tout en offrant des solutions concrètes aux défis environnementaux du secteur BTP en Tunisie et dans la région méditerranéenne."
+      },
+      "RN3": {
+        title: "Route Nationale 3 (Tunisie)",
+        text: "La RN3 est une route nationale en Tunisie qui relie Tunis à la frontière algérienne via Kef et El Kef. Elle joue un rôle stratégique dans le transport terrestre et le commerce transfrontalier. Un tronçon pilote de 1,2 km a été réhabilité dans le gouvernorat de Ben Arous dans le cadre du projet RE-MED, utilisant des granulats recyclés issus de déchets de construction. Ce projet vise à tester la durabilité des chaussées vertes et à promouvoir l'économie circulaire dans le secteur routier."
+      },
+      "REG": {
+        title: "Société REG (Respect Environment Group)",
+        text: "La société REG (Respect Environment Group), basée à Ezzahra (Tunisie), est la première unité de recyclage des déchets de construction et de démolition (DC&D) en Tunisie et en Afrique. Opérationnelle depuis 2019, elle transforme quotidiennement jusqu'à 1 000 tonnes de déchets en granulats réutilisables pour les infrastructures routières, réduisant les coûts de construction de 30 à 40 % par rapport aux matériaux traditionnels. REG a notamment fourni des granulats recyclés pour un tronçon expérimental de la RN3 dans le cadre du projet RE-MED, démontrant l'efficacité de ses produits dans les couches de base des chaussées. La société promeut également une économie circulaire en limitant l'extraction de ressources non renouvelables et en réduisant les décharges sauvages. Avec des projets d'expansion au Moyen-Orient (Dubaï) et en Europe (Italie), et le développement d'une application IA pour identifier les déchets valorisables (en collaboration avec RE-MED), REG vise à devenir un modèle régional de gestion durable des déchets du BTP."
+      }
+    };
+
+    // Ouvrir la modale
+    function ouvrirModale(terme) {
+      const def = definitions[terme];
+      if (def) {
+        document.getElementById("modal-title").textContent = def.title;
+        document.getElementById("modal-text").textContent = def.text;
+        document.getElementById("definitionModal").style.display = "block";
+      }
+    }
+
+    // Fermer la modale
+    function fermerModale() {
+      document.getElementById("definitionModal").style.display = "none";
+    }
+
+    // Fermer en cliquant en dehors
+    window.onclick = function(event) {
+      const modal = document.getElementById("definitionModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    // Base de données complète des matériaux recyclés
     const materials = {
       "Béton recyclé": {
         propriétés: [
@@ -155,7 +283,7 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie et à l’international</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Le projet <strong>RE-MED</strong> (UE) a permis la construction d’un tronçon de 1,2 km sur la <strong>RN3</strong> (Ben Arous) utilisant des granulats de béton recyclés. Une unité REG à Ezzahra traite les déchets de démolition. Objectif : évaluer la performance et préparer une réglementation.</li>
+            <li><strong>Tunisie :</strong> Le projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span> (UE) a permis la construction d’un tronçon de 1,2 km sur la <span class="highlight" onclick="ouvrirModale('RN3')">RN3</span> (Ben Arous) utilisant des granulats de béton recyclés. Une unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span> à Ezzahra traite les déchets de démolition. Objectif : évaluer la performance et préparer une réglementation.</li>
             <li><strong>Monde :</strong> Jusqu’à <strong>30%</strong> des granulats en Europe proviennent de béton recyclé. Le projet Recygénie (France) atteint jusqu’à 100% dans certains cas.</li>
           </ul>
         `
@@ -186,7 +314,7 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie et à l’international</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Utilisées comme granulats dans les sous-couches routières dans le cadre du projet <strong>RE-MED</strong>. Filière encore peu structurée.</li>
+            <li><strong>Tunisie :</strong> Utilisées comme granulats dans les sous-couches routières dans le cadre du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>. Filière encore peu structurée.</li>
             <li><strong>Monde :</strong> Entre <strong>10-20%</strong> des briques sont recyclées en remblais (norme NF EN 12620).</li>
           </ul>
         `
@@ -223,7 +351,7 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie et à l’international</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Valorisation partielle via l’unité REG à Ezzahra, mais aucun projet spécifique documenté.</li>
+            <li><strong>Tunisie :</strong> Valorisation partielle via l’unité <span class="highlight" onclick="ouvrirModale('REG')">REG</span> à Ezzahra, mais aucun projet spécifique documenté.</li>
             <li><strong>Monde :</strong> Recyclée à <strong>15%</strong> dans les bétons légers (projets pilotes en Italie et Espagne).</li>
           </ul>
         `
@@ -256,7 +384,7 @@
         tunisie: `
           <h3>📌 Utilisation en Tunisie et à l’international</h3>
           <ul>
-            <li><strong>Tunisie :</strong> Explorés dans le cadre du projet <strong>RE-MED</strong>, mais pas encore généralisés.</li>
+            <li><strong>Tunisie :</strong> Explorés dans le cadre du projet <span class="highlight" onclick="ouvrirModale('RE-MED')">RE-MED</span>, mais pas encore généralisés.</li>
             <li><strong>Monde :</strong> <strong>50-80%</strong> des enrobés sont réutilisés dans les pays nordiques (ex. : Suède).</li>
           </ul>
         `
@@ -435,7 +563,6 @@
         document.getElementById("materialsContainer").innerHTML = "<p>👉 Sélectionnez un matériau pour afficher ses informations.</p>";
         return;
       }
-      // Trouver le matériau correspondant (insensible à la casse)
       const materialName = Object.keys(materials).find(key => key.toLowerCase() === selectedKey);
       const mat = materials[materialName];
       const container = document.getElementById("materialsContainer");
