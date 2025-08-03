@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
   <!-- SEO -->
-  <title>Matériaux Recyclés en Génie Civil</title>
-  <meta name="description" content="Guide des matériaux recyclés utilisés en génie civil : propriétés, avantages, inconvénients et utilisations.">
-  <meta name="keywords" content="matériaux recyclés, génie civil, recyclage, construction durable, béton recyclé, briques recyclées, pneus usagés">
+  <title>Matériaux Recyclés en Génie Civil - Tunisie & Monde</title>
+  <meta name="description" content="Guide complet des matériaux recyclés en génie civil : utilisations en Tunisie, projets RE-MED, REG, et comparaisons internationales.">
+  <meta name="keywords" content="matériaux recyclés, génie civil, Tunisie, RE-MED, REG, construction durable, béton recyclé, pneus, plastique, cendres volantes">
   <meta name="author" content="Weslati Asma">
   <meta name="robots" content="index, follow">
-
   <!-- Style -->
   <style>
     body {
@@ -75,6 +73,17 @@
     .inconvenient {
       color: red;
     }
+    .tunisia-section {
+      background-color: #fff8e6;
+      padding: 15px;
+      border-left: 5px solid #ff9800;
+      margin-top: 15px;
+      border-radius: 0 8px 8px 0;
+    }
+    .tunisia-section h3 {
+      margin-top: 0;
+      color: #d35400;
+    }
     footer {
       text-align: center;
       margin-top: 50px;
@@ -84,31 +93,26 @@
   </style>
 </head>
 <body>
-
   <div class="container">
     <header>
       <h1>📚 Matériaux Recyclés en Génie Civil</h1>
-      <p>Découvrez les matériaux recyclés utilisés dans la construction durable : propriétés, avantages, inconvénients et utilisations.</p>
+      <p>Découvrez les matériaux recyclés utilisés dans la construction durable : propriétés, avantages, inconvénients, utilisations locales (Tunisie) et internationales.</p>
     </header>
-
     <div class="search-box">
       <label for="materialSelect">Sélectionnez un matériau :</label>
       <select id="materialSelect" onchange="afficherInfos()">
         <option value="">Choisissez un matériau...</option>
       </select>
     </div>
-
     <div id="materialsContainer">
       <!-- Les informations seront affichées ici par JavaScript -->
     </div>
-
     <footer>
       &copy; 2025 Matériaux Recyclés | Un projet éducatif sur le recyclage en génie civil
     </footer>
   </div>
-
   <script>
-    // Base de données complète des matériaux recyclés
+    // Base de données complète des matériaux recyclés + infos Tunisie
     const materials = {
       "Béton recyclé": {
         propriétés: [
@@ -147,7 +151,14 @@
             "Limite les tassements différentiels pour une meilleure stabilité",
             "Solution modulable en mélange avec d'autres matériaux"
           ]
-        }
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Le projet <strong>RE-MED</strong> (UE) a permis la construction d’un tronçon de 1,2 km sur la <strong>RN3</strong> (Ben Arous) utilisant des granulats de béton recyclés. Une unité REG à Ezzahra traite les déchets de démolition. Objectif : évaluer la performance et préparer une réglementation.</li>
+            <li><strong>Monde :</strong> Jusqu’à <strong>30%</strong> des granulats en Europe proviennent de béton recyclé. Le projet Recygénie (France) atteint jusqu’à 100% dans certains cas.</li>
+          </ul>
+        `
       },
       "Briques recyclées": {
         propriétés: [
@@ -171,7 +182,14 @@
             "Surface uniforme et stable",
             "Drainage optimal"
           ]
-        }
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Utilisées comme granulats dans les sous-couches routières dans le cadre du projet <strong>RE-MED</strong>. Filière encore peu structurée.</li>
+            <li><strong>Monde :</strong> Entre <strong>10-20%</strong> des briques sont recyclées en remblais (norme NF EN 12620).</li>
+          </ul>
+        `
       },
       "Céramique recyclée": {
         propriétés: [
@@ -201,7 +219,14 @@
             "Amélioration des propriétés mécaniques et thermiques",
             "Agrégats performants pour des structures durables"
           ]
-        }
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Valorisation partielle via l’unité REG à Ezzahra, mais aucun projet spécifique documenté.</li>
+            <li><strong>Monde :</strong> Recyclée à <strong>15%</strong> dans les bétons légers (projets pilotes en Italie et Espagne).</li>
+          </ul>
+        `
       },
       "Enrobés recyclés": {
         propriétés: [
@@ -215,11 +240,26 @@
           inconvénients: ["Performance légèrement inférieure"]
         },
         utilisations: {
-          "Renforcement des sols": [],
-          "Matériaux de remblai et de fondation": [],
-          "Drainage et étanchéité": [],
-          "Traitement des sols par enrobés bitumineux": []
-        }
+          "Renforcement des sols": [
+            "Les granulats recyclés sous forme d'enrobés améliorent la portance des sols meubles et contribuent à leur stabilisation."
+          ],
+          "Matériaux de remblai et de fondation": [
+            "Les agrégats d'enrobés concassés servent comme matériaux de remblai dans les infrastructures routières et ferroviaires, remplaçant partiellement les granulats naturels."
+          ],
+          "Drainage et étanchéité": [
+            "Les enrobés drainants facilitent l'évacuation des eaux de surface et réduisent l'accumulation d'eau sur les chaussées."
+          ],
+          "Traitement des sols par enrobés bitumineux": [
+            "Les enrobés bitumineux, mélangés à des liants hydrauliques, stabilisent les sols argileux et limitent leur gonflement."
+          ]
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Explorés dans le cadre du projet <strong>RE-MED</strong>, mais pas encore généralisés.</li>
+            <li><strong>Monde :</strong> <strong>50-80%</strong> des enrobés sont réutilisés dans les pays nordiques (ex. : Suède).</li>
+          </ul>
+        `
       },
       "Acier recyclé": {
         propriétés: [
@@ -236,18 +276,31 @@
           inconvénients: ["Variabilité des propriétés"]
         },
         utilisations: {
-          "Renforcement des sols": [],
-          "Stabilisation des pentes": [],
-          "Drainage et filtration": [],
+          "Renforcement des sols": [
+            "L'acier, sous forme de barres ou de treillis, améliore la stabilité et la résistance des sols faibles, mais nécessite des traitements anticorrosion pour une durabilité optimale."
+          ],
+          "Stabilisation des pentes": [
+            "Des clous ou tirants en acier sont utilisés pour prévenir les glissements de terrain, offrant une solution rapide et économique, mais requièrent une conception précise pour éviter les défaillances."
+          ],
+          "Drainage et filtration": [
+            "L'acier recyclé peut être intégré dans des systèmes de drainage pour améliorer la perméabilité, bien qu'il faille éviter les particules trop fines pour prévenir la corrosion ou le colmatage."
+          ],
           "Réhabilitation de sites contaminés": [
             "Fonction clé pour les barrières de confinement des polluants",
             "Haute résistance mécanique et isolation efficace des zones contaminées"
           ],
           "Remblais légers": [
-            "Allège la charge sur les sols compressibles",
-            "Idéal pour des projets sensibles au poids (remblais sur sols faibles, zones urbaines denses)"
+            "Les déchets d'acier réduisent la charge sur les sols compressibles, minimisant les tassements",
+            "Un compactage adéquat est essentiel pour garantir la stabilité"
           ]
-        }
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Collecté par des réseaux informels (ex. : « Berbechas » à Sfax). Recyclé par l’usine <strong>El Fouladh</strong> à Menzel Bourguiba pour des structures métalliques.</li>
+            <li><strong>Monde :</strong> Taux de recyclage de <strong>85%</strong> dans les ossatures et fondations.</li>
+          </ul>
+        `
       },
       "Pneus usagés": {
         propriétés: [
@@ -263,12 +316,25 @@
         },
         utilisations: {
           "Stabilisation des pentes": [
-            "Solution innovante en utilisant des pneus recyclés pour renforcer les sols en pente"
+            "Les pneus usagés, empilés en couches ou en treillis, consolident les sols en pente grâce à leur structure flexible, réduisant les risques de glissements de terrain."
           ],
-          "Construction routière": [],
-          "Construction des murs de soutènement": [],
-          "Drainage et gestion des eaux": []
-        }
+          "Construction routière": [
+            "Utilisés comme remblai léger ou mélangés à d'autres matériaux, les pneus améliorent la stabilité des routes et atténuent les vibrations du trafic."
+          ],
+          "Construction des murs de soutènement": [
+            "Les pneus remplis de terre ou combinés à des géotextiles forment des blocs robustes pour retenir les sols en pente, offrant une solution durable."
+          ],
+          "Drainage et gestion des eaux": [
+            "Les granulats de pneus, perméables, facilitent l'évacuation de l'eau et servent de filtre dans les systèmes de drainage, réduisant les risques d'inondation."
+          ]
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Très faible recyclage (<strong>70 entreprises</strong> actives). Cadre réglementaire existant depuis 2015, mais aucun projet routier significatif.</li>
+            <li><strong>Monde :</strong> <strong>40%</strong> valorisés en granulats pour terrains sportifs ou routes (technologie RMIT en Australie).</li>
+          </ul>
+        `
       },
       "Déchets plastiques": {
         propriétés: [
@@ -284,12 +350,29 @@
           inconvénients: ["Faible résistance mécanique"]
         },
         utilisations: {
-          "Renforcement des sols": [],
-          "Barrières imperméables": [],
-          "Drainage et filtration": [],
-          "Stabilisation des sols": [],
-          "Réduction de l'empreinte environnementale": []
-        }
+          "Renforcement des sols": [
+            "Les fibres plastiques mélangées aux sols améliorent leur résistance et leur stabilité, tandis que les géotextiles renforcent les pentes pour prévenir les glissements de terrain."
+          ],
+          "Barrières imperméables": [
+            "Les membranes en plastique (comme le polyéthylène) servent à isoler les décharges et réservoirs, empêchant la pollution des eaux souterraines."
+          ],
+          "Drainage et filtration": [
+            "Les géocomposites en plastique optimisent l’évacuation de l’eau et la filtration des particules, utilisés dans les routes et les systèmes d’eaux pluviales."
+          ],
+          "Stabilisation des sols": [
+            "Les granulés ou fibres plastiques augmentent la cohésion des sols instables, bénéfiques pour les routes et fondations."
+          ],
+          "Réduction de l'empreinte environnementale": [
+            "Le recyclage des déchets plastiques en géotechnique limite l’enfouissement et l’extraction de ressources naturelles."
+          ]
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Aucun projet majeur. Initiatives locales limitées (briques en plastique non implantées).</li>
+            <li><strong>Monde :</strong> Moins de <strong>5%</strong> utilisés dans le BTP (ex. : routes en Inde avec 10% de plastique recyclé).</li>
+          </ul>
+        `
       },
       "Cendres volantes": {
         propriétés: [
@@ -306,12 +389,29 @@
           inconvénients: ["Disponibilité limitée"]
         },
         utilisations: {
-          "Stabilisation des sols et remblais": [],
-          "Construction routière et ferroviaire": [],
-          "Drainage et gestion des eaux": [],
-          "Barrières géotechniques": [],
-          "Béton géotechnique": []
-        }
+          "Stabilisation des sols et remblais": [
+            "Les cendres volantes améliorent la portance et réduisent la plasticité des sols argileux grâce à leur réaction pouzzolanique et leur capacité à combler les vides, limitant ainsi les variations hydriques."
+          ],
+          "Construction routière et ferroviaire": [
+            "Incorporées dans les couches de base, elles renforcent la résistance mécanique, optimisent le compactage et réduisent les fissures, prolongeant la durée de vie des infrastructures routières."
+          ],
+          "Drainage et gestion des eaux": [
+            "Leur granulométrie fine permet de créer des couches imperméables pour les décharges ou les digues, limitant l’infiltration d’eau et la migration des polluants."
+          ],
+          "Barrières géotechniques": [
+            "Elles piègent les métaux lourds par adsorption et solidification-stabilisation, réduisant leur mobilité et leur toxicité, tout en améliorant les propriétés mécaniques des sols traités."
+          ],
+          "Béton géotechnique": [
+            "En remplaçant partiellement le ciment, elles améliorent la durabilité, réduisent la perméabilité et limitent la chaleur d’hydratation, ce qui est idéal pour les ouvrages massifs."
+          ]
+        },
+        tunisie: `
+          <h3>📌 Utilisation en Tunisie et à l’international</h3>
+          <ul>
+            <li><strong>Tunisie :</strong> Non utilisées malgré leur potentiel pour les ciments bas carbone.</li>
+            <li><strong>Monde :</strong> Intégrées à <strong>50%</strong> dans certains ciments (Fondation Ellen MacArthur, Royaume-Uni).</li>
+          </ul>
+        `
       }
     };
 
@@ -335,12 +435,10 @@
         document.getElementById("materialsContainer").innerHTML = "<p>👉 Sélectionnez un matériau pour afficher ses informations.</p>";
         return;
       }
-
       // Trouver le matériau correspondant (insensible à la casse)
       const materialName = Object.keys(materials).find(key => key.toLowerCase() === selectedKey);
       const mat = materials[materialName];
       const container = document.getElementById("materialsContainer");
-
       let html = `<h2>${materialName}</h2>`;
 
       // Propriétés
@@ -366,6 +464,11 @@
         html += "</li>";
       });
       html += `</ul>`;
+
+      // Section Tunisie
+      if (mat.tunisie) {
+        html += `<div class="tunisia-section">${mat.tunisie}</div>`;
+      }
 
       container.innerHTML = html;
     }
